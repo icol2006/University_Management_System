@@ -1,150 +1,307 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title -Cyborg University</title>
-    <link href="~/Custom_design/Logo.css" rel="stylesheet" />
-    
+﻿
+@{
+    ViewBag.Title = "_LayoutMy";
+}
 
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-    <script src="~/Scripts/respond.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Principal- Sistema Ventas</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- MetisMenu CSS -->
+    <link href="~/Assets/metisMenu/metisMenu.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="~/Css/sb-admin-2.css" rel="stylesheet" />
+    <!-- Morris Charts CSS -->
+    <link href="~/Assets/morrisjs/morris.css" rel="stylesheet" />
+    <!-- Custom Fonts -->
+    <link href="~/Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
-    <body>
-        
-        <div class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container">
-
-           
-               
-            
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    @Html.ActionLink("Cyborg University", "Index", "Home", null, new { @class = "thumbnail" })
-                    
-                </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Department<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Add Departments", "Create", "Department")</li>
-                                <li>@Html.ActionLink("View Department", "Index", "Department")</li>
-
-                                
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Course<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Add Course", "Create", "Courses")</li>
-                                <li>@Html.ActionLink("View Course", "Index", "Courses")</li>
-                                
-
-                            </ul>
-                        </li>
-                    </ul>
-                   
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Teacher<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Add Teacher", "Create", "Teacher")</li>
-                                <li>@Html.ActionLink("View Teacher", "Index", "Teacher")</li>
-                                @*  <li>@Html.ActionLink("Teacher", "Index", "Teacher")</li>*@
-
-                            </ul>
-                        </li>
-                    </ul>  
-                   
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Assign Course<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Assign Course", "Create", "AssignCourse")</li>
-                                <li>@Html.ActionLink("View Course Status", "ViewCourseStatus", "AssignCourse")</li>
-                                @*           <li>@Html.ActionLink("Coursse Enrollment", "Index", "AssignCourse")</li>*@
-
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                         <li class="dropdown">
-                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Student<b class="caret"></b></a>
-                             <ul class="dropdown-menu">
-                                 <li>@Html.ActionLink("Add Student", "Create", "Student")</li>
-                                 <li>@Html.ActionLink("View Student", "Index", "Student")</li>
-                                 @*<li>li>@Html.ActionLink("Student", "Index", "Student")</li></li>*@
-
-                             </ul>
-                         </li>
-                     </ul>
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Class Room<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Allocate Room", "Create", "RoomAllocation")</li>
-                                <li>@Html.ActionLink("Room States", "RoomAllocationView", "RoomAllocation")</li>
-                                @*  li>@Html.ActionLink("Room Alocation", "Index", "RoomAllocation")</li>*@
-
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Enroll Course<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Add Course", "Create", "EnrollCourse")</li>
-                                <li>@Html.ActionLink("View Status", "Index", "EnrollCourse")</li>
-                                @*  li>@Html.ActionLink("Room Alocation", "Index", "RoomAllocation")</li>*@
-
-                            </ul>
-                        </li>
-                    </ul>
-              
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Result<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Result Enrty", "Create", "ResultEntry")</li>
-                                <li>@Html.ActionLink("View Result", "ViewResult", "ResultEntry")</li>
-                                @*  li>@Html.ActionLink("Room Alocation", "Index", "RoomAllocation")</li>*@
-
-                            </ul>
-                        </li>
-                    </ul>
-                            
-         
-                            
-
-                        
-                    @*@Html.Partial("_LoginPartial")*@
-                </div>
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-        </div>
-        <div class="container body-content">
-            @RenderBody()
-            <hr />
-            <footer>
-                <p align="right">&copy; @DateTime.Now.Year - Cyborg Coders</p>
-            </footer>
-        </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                 <li>
+                    <a href="~/"><i class="fa fa-home fa-fw"></i> Home</a>
+                </li>
 
-   
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @RenderSection("scripts", required: false)
-    </body>
+
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <!-- HOME -->
+                        <li>
+                            <a href="~/"><i class="fa fa-home fa-fw"></i> Home</a>
+                        </li>
+                        <!-- DEPARMENTS -->
+                        <li>
+                            <a href="#"><i class="fa fa-car fa-fw"></i> Departments<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="~/Department/Create"><i class="fa fa-check fa-fw" style="color:#f0ad4e"></i>Add Department</a>
+                                </li>
+                                <li>
+                                    <a href="~/Department/Index"><i class="fa fa-search fa-fw" style="color:#f0ad4e"></i>View Deparments</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <!-- COURSES -->
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Courses<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="~/Courses/Create"><i class="fa fa-archive fa-fw" style="color:#f0ad4e"></i>Add Course</a>
+                                </li>
+                                <li>
+                                    <a href="~/Courses/Index"><i class="fa fa-shopping-cart fa-fw" style="color:#f0ad4e"></i>View Courses</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- TEACHERS -->
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Teachers<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="~/Teacher/Create"><i class="fa fa-chevron-circle-down fa-fw" style="color:#f0ad4e"></i>Add Teacher</a>
+                                </li>
+                                <li>
+                                    <a href="~/Teacher/Index"><i class="fa fa-pencil fa-fw" style="color:#f0ad4"></i>View Teachers</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- aSSIGN COURSE -->
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Assign Course<span class="fa arrow"></span></a>
+                          
+                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("Create", "AssignCourse")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>Assign Course</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ViewCourseStatus", "AssignCourse")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>View Course Status</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                           </ul>
+                            
+                        </li>
+                        <!-- STUDENTS -->
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Students<span class="fa arrow"></span></a>
+
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("Create", "Student")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>Create Student</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Student")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>View Students</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <!-- ROOM ALLOCATION -->
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Room Allocation<span class="fa arrow"></span></a>
+
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("Create", "RoomAllocation")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>Allocate Room</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("RoomAllocationView", "RoomAllocation")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>Room States</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- ENROLL COURSE -->
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Enroll Course<span class="fa arrow"></span></a>
+
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("Create", "EnrollCourse")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>Add Course</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "EnrollCourse")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>View Status</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- RESULT ENTRY -->
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i>Results Entry<span class="fa arrow"></span></a>
+
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="@Url.Action("Create", "ResultEntry")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>Results Entry</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ViewResult", "ResultEntry")">
+                                        <i class="fa fa-wrench fa-fw"></i>
+                                        <span>
+                                            <strong>View Result</strong>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                        <li>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Administración<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="#">Empresa</a>
+                                </li>
+                                <li>
+                                    <a href="#">Empleados</a>
+                                </li>
+                                <li>
+                                    <a href="#">Almacenes</a>
+                                </li>
+                                <li>
+                                    <a href="#">Cargos</a>
+                                </li>
+                                <li>
+                                    <a href="#"> Usuarios</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <!-- /.row -->
+
+            <div class="row">
+                @RenderBody()
+            </div>
+
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="~/Assets/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Assets/metisMenu/metisMenu.min.js"></script>
+    <!-- Morris Charts JavaScript -->
+
+    <script src="~/Assets/morrisjs/morris.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Js/sb-admin-2.js"></script>
+
+
+</body>
 </html>
+
+
+
