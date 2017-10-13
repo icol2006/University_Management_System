@@ -1,4 +1,3 @@
-C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\obj\Debug\University_Manager.csprojResolveAssemblyReference.cache
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\ApplicationInsights.config
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\roslyn\csc.exe
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
@@ -30,8 +29,10 @@ C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Mic
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.AspNet.Identity.Owin.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.dll
+C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Security.Cookies.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Security.dll
+C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Security.Google.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Security.OAuth.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Newtonsoft.Json.dll
@@ -56,8 +57,10 @@ C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Mic
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.AspNet.Identity.Owin.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.xml
+C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Security.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\System.Web.Helpers.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\System.Web.Mvc.xml
@@ -70,3 +73,4 @@ C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Ant
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Newtonsoft.Json.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\obj\Debug\University_Manager.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\obj\Debug\University_Manager.pdb
+C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\obj\Debug\University_Manager.csprojResolveAssemblyReference.cache

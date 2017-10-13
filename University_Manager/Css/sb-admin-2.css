@@ -446,3 +446,13 @@ table.dataTable thead .sorting:after {
     border-left-width: 0;
   }
 }
+.main-color-bg {
+    background-color: #337ab7 !important;
+    border-color: rgba(0, 0, 0, 0.175) !important;
+    color: #333 !important;
+}
+.panel-title {
+    color: #fefefe;
+}
+
+

@@ -8,7 +8,7 @@ using System.Runtime.Remoting.Contexts;
 using System.Web;
 using University_Manager.Models;
 
-namespace ProjectVersion001.Models
+namespace University_Manager.Models
 {
     public class UniversityDbContex: DbContext
 

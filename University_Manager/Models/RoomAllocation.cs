@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace ProjectVersion001.Models
+namespace University_Manager.Models
 {
     public class RoomAllocation
     {

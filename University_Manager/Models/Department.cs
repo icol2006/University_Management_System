@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ProjectVersion001.Models
+namespace University_Manager.Models
 {
     public class Department
     {

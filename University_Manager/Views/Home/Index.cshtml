@@ -6,70 +6,117 @@
     .
 </div>
 
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="~/IMG/im 1.jpg" alt="aaaa   ">
-
-
-
-                <div class="carousel-caption">
-
-                </div>
-            </div>
-
-
-
-            <div class="item">
-
-                <img src="~/IMG/im 2.jpg" alt="aaadda   ">
-
-
-
-                <div class="carousel-caption">
-
-                </div>
-            </div>
-
-            <div class="item">
-
-                <img src="~/IMG/im 3.jpg" alt="aaadda   ">
-
-
-
-                <div class="carousel-caption">
-
-                </div>
+<div class="panel panel-default">
+    <div class="panel-heading main-color-bg">
+        <h3 class="panel-title">Website Overview</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span></h2>
+                <h4>
+                    <a href="@Url.Action("Index", "Department")">
+                        <span>
+                            <strong class="box-color-font">Deparments</strong>
+                        </span>
+                    </a>
+                </h4>
             </div>
         </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>University Profile</h2>
-        <p>Our heartiest welcome to you for your decision to be a student of Stamford's Education Program. Stamford University Bangladesh is one of the few universities that have been selected for this distinguished worldwide program
-        </p>
-    </div>
-    <div class="col-md-4">
-        <h2>Help </h2>
-        <p>If you have any kind of difficulty in maintaining or using site then you can easily fix it with some easy steps</p>
-    </div>
-    <div class="col-md-4">
-        <h2>Developers</h2>
-        <p>We are a group of emerging team in developing field. To Know about us please read more</p>
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> </h2>
+                <h4>
+                    <a href="@Url.Action("Index", "Courses")">
+                        <span>
+                            <strong class="box-color-font">Courses</strong>
+                        </span>
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> </h2>
+                <h4>
+                    <a href="@Url.Action("Index", "Teacher")">
+                        <span>
+                            <strong class="box-color-font">Teachers</strong>
+                        </span>
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> </h2>
+                <h4>
+                    <a href="@Url.Action("ViewCourseStatus", "AssignCourse")"
+                        <span>
+                            <strong class="box-color-font">Assign Course</strong>
+                        </span>
+                    </a>
+                </h4>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> </h2>
+                <h4>
+                    <a href="@Url.Action("Index", "Student")"
+                        <span>
+                            <strong class="box-color-font">Students</strong>
+                        </span>
+                    </a>
+                </h4>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> </h2>
+                <h4>
+                    <a href="@Url.Action("RoomAllocationView", "RoomAllocation")"
+                        <span>
+                            <strong class="box-color-font">Room Allocation</strong>
+                        </span>
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> </h2>
+                <h4>
+                    <a href="@Url.Action("Index", "EnrollCourse")"
+                        <span>
+                            <strong class="box-color-font">Enrool Course</strong>
+                        </span>
+                    </a>
+                </h4>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> </h2>
+                <h4>
+                    <a href="@Url.Action("ViewResult", "ResultEntry")"
+                        <span>
+                            <strong class="box-color-font">Results Entries</strong>
+                        </span>
+                    </a>
+                </h4>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="well dash-box">
+                <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span></h2>
+                <h4>Users</h4>
+            </div>
+        </div>
     </div>
 </div>

@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
-using ProjectVersion001.Models;
+using University_Manager.Models;
 
 
-namespace ProjectVersion001.Controllers
+namespace University_Manager.Controllers
 {
     public class StudentController : Controller
     {

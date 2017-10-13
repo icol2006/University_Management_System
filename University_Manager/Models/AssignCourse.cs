@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
-using ProjectVersion001.Models;
+using University_Manager.Models;
 
-namespace ProjectVersion001.Models
+namespace University_Manager.Models
 {
     public class AssignCourse
     {
