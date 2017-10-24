@@ -9,6 +9,7 @@ using University_Manager.Models;
 
 namespace University_Manager.Controllers
 {
+    [Authorize]
     public class EnrollCourseController : Controller
     {
         private UniversityDbContex db = new UniversityDbContex();

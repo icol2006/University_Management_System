@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -229,8 +229,8 @@
     <Compile Include="Models\Semister.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Teacher.cs" />
-    <Compile Include="Models\UniversityDbContex.cs" />
-    <Compile Include="Models\UniversityDBInitializer.cs" />
+    <Compile Include="DAL\UniversityDbContex.cs" />
+    <Compile Include="DAL\UniversityDBInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -258,6 +258,7 @@
     <Content Include="Css\alertify.bootstrap.css" />
     <Content Include="Css\alertify.core.css" />
     <Content Include="Css\alertify.default.css" />
+    <Content Include="Css\jquery.dataTables.min.css" />
     <Content Include="Css\login.css" />
     <Content Include="Css\sb-admin-2.css" />
     <Content Include="Css\sb-admin-2.min.css" />
@@ -272,6 +273,7 @@
     <Content Include="Js\alertify.min.js" />
     <Content Include="Js\Categoria.js" />
     <Content Include="Js\ckeditor.js" />
+    <Content Include="Js\jquery-2.1.4.min.js" />
     <Content Include="Js\modernizr-2.6.2.js" />
     <Content Include="Js\sb-admin-2.js" />
     <Content Include="Js\sb-admin-2.min.js" />
@@ -418,6 +420,10 @@
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Account\ListUsers.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,44 +1,44 @@
 ﻿@model IEnumerable<University_Manager.Models.EnrollCourse>
-
 @{
     ViewBag.Title = "Enroll Course";
 }
-
 <h2>Enrolled Course Status </h2>
-
-<p >
+<p>
     @Html.ActionLink("Enroll Course", "Create")
 </p>
-<p><br/></p>
-<table class="table table-striped">
-    <tr>
-        <th>
-            @Html.DisplayName("Student Registration Id")
-        </th>
-        <th>
-            @Html.DisplayName("Course Code")
-        </th>
-        <th>
-            @Html.DisplayName("Enroll Date")
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Student.RegistrationId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Course.Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnrollDate)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.EnrollCourseId })
-        </td>
-    </tr>
-}
-
+<p><br /></p>
+<div class="container-outer">
+    <table id="myTable" class="display" width="100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("Student Registration Id")
+                </th>
+                <th>
+                    @Html.DisplayName("Course Code")
+                </th>
+                <th>
+                    @Html.DisplayName("Enroll Date")
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.RegistrationId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Course.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EnrollDate)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.EnrollCourseId })
+                    </td>
+                </tr>
+            }
 </table>
+</div>

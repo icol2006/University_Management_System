@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
+using System.Data.Entity;
 
 namespace University_Manager.Models
 {

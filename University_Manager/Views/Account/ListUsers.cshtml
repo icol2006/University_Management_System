@@ -1,0 +1,54 @@
+﻿@model IEnumerable<University_Manager.Models.UserRoleViewModel>
+@{
+    ViewBag.Title = "ListUsers";
+}
+
+<h2>All Departments</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="container-outer">
+    <table id="myTable" class="display" width="100%">
+        <thead>
+            <tr>
+                <th>
+                    User Name
+                </th>
+                <th>
+                   Email
+                </th>
+                <th>
+                    Rol
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+            var roles = "";
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.Email)
+                </td>
+                <td>
+                    @foreach(var rol in item.Roles.ToList())
+                    {
+                      @Html.Name(rol.Name)
+                    }
+                   
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.User.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.User.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.User.Id })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+

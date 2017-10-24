@@ -1,49 +1,69 @@
 ﻿@model List<University_Manager.Models.EnrollCourse>
-           
+
+<script src="~/Assets/jquery/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+
+<link href="~/Css/jquery.dataTables.min.css" rel="stylesheet" />
+<script type="text/javascript"
+        src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+
+
 @if (Model != null)
 {
-    <table class="table table-striped">
-        <tr>
-            <th>
-                Course Code
-            </th>
-            <th>
-                Course Name
-            </th>
-            <th>
-                Grade
-            </th>
-
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course.Code)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Course.Name)
-                </td>
-
-                <td>
-                    @if (item.GradeName != null)
+    <div class="container-outer">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>
+                            Course Code
+                        </th>
+                        <th>
+                            Course Name
+                        </th>
+                        <th>
+                            Grade
+                        </th>
+                    </tr>
+                <thead>
+                    @foreach (var item in Model)
+                {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Course.Code)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Course.Name)
+                            </td>
+                            <td>
+                                @if (item.GradeName != null)
                     {
-                         @Html.DisplayFor(modelItem => item.GradeName)
-                    }
-                    @if (item.GradeName == null)
+                                    @Html.DisplayFor(modelItem => item.GradeName)
+                                }
+                                @if (item.GradeName == null)
                     {
                         item.GradeName = "Empty";
-                        @Html.DisplayFor(modelItem => item.GradeName)
+                                    @Html.DisplayFor(modelItem => item.GradeName)
+                                }
+
+                            </td>
+                        </tr>
                     }
-                    
-                </td>
-
-            </tr>
-        }
-
-    </table>
+            </table>
+    </div>
 }
 
-<div style="color: darkgoldenrod"><h3>@ViewBag.NotEnrolled</h3></div>
+        <div style="color: darkgoldenrod"><h3>@ViewBag.NotEnrolled</h3></div>
+
+    <!-- jQuery -->
+<script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            var table = $('#myTable').DataTable();
+
+        });
+</script>

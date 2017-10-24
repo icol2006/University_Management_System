@@ -11,6 +11,11 @@ using Microsoft.Owin.Security;
 using University_Manager.Models;
 using University_Manager.App_Start;
 using static System.Net.WebRequestMethods;
+using System.Data.Entity;
+using System.Collections.Generic;
+using System.Web.Security;
+using System.Collections.ObjectModel;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace University_Manager.Controllers
 {
@@ -60,6 +65,11 @@ namespace University_Manager.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+
+            Database.SetInitializer(new DropCreateDatabaseAlways<UniversityDbContex>());      
+               UniversityDbContex db = new UniversityDbContex();
+
+            db.Departments.ToList();
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -76,9 +86,13 @@ namespace University_Manager.Controllers
                 return View(model);
             }
 
+
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
             var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
+
+
             switch (result)
             {
                 case SignInStatus.Success:
@@ -263,6 +277,7 @@ namespace University_Manager.Controllers
                 // Don't reveal that the user does not exist
                 return RedirectToAction("ResetPasswordConfirmation", "Account");
             }
+ 
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
@@ -305,7 +320,7 @@ namespace University_Manager.Controllers
             var factorOptions = userFactors.Select(purpose => new SelectListItem { Text = purpose, Value = purpose }).ToList();
             return View(new SendCodeViewModel { Providers = factorOptions, ReturnUrl = returnUrl, RememberMe = rememberMe });
         }
-
+      
         //
         // POST: /Account/SendCode
         [HttpPost]
@@ -412,11 +427,99 @@ namespace University_Manager.Controllers
             return View();
         }
 
+        public enum ManageMessageId
+        {
+            ChangePasswordSuccess,
+            SetPasswordSuccess,
+            RemoveLoginSuccess,
+
+        }
+        //
+        // GET: /Account/Manage
+
+        public ActionResult Manage(ManageMessageId? message)
+        {
+            ViewBag.StatusMessage =
+                message == ManageMessageId.ChangePasswordSuccess ? "La contraseña se ha cambiado."
+                : message == ManageMessageId.SetPasswordSuccess ? "Su contraseña se ha establecido."
+                : message == ManageMessageId.RemoveLoginSuccess ? "El inicio de sesión externo se ha quitado."
+                : "";
+            ViewBag.HasLocalPassword = UserManager.HasPassword(User.Identity.GetUserId());
+            ViewBag.ReturnUrl = Url.Action("Manage");
+            return View();
+          
+        }
+
+        //
+        // POST: /Account/Manage
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Manage(LocalPasswordModel model)
+        {
+            bool hasLocalAccount = UserManager.HasPassword(User.Identity.GetUserId());
+            ViewBag.HasLocalPassword = hasLocalAccount;
+            ViewBag.ReturnUrl = Url.Action("Manage");
+            if (hasLocalAccount)
+            {
+                if (ModelState.IsValid)
+                {
+                    // ChangePassword iniciará una excepción en lugar de devolver false en determinados escenarios de error.
+                    bool changePasswordSucceeded;
+                    try
+                    {
+                        changePasswordSucceeded = UserManager.ChangePassword(User.Identity.GetUserId(), model.OldPassword, model.NewPassword).Succeeded;
+                    }
+                    catch (Exception)
+                    {
+                        changePasswordSucceeded = false;
+                    }
+
+                    if (changePasswordSucceeded)
+                    {
+                        return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "La contraseña actual es incorrecta o la nueva contraseña no es válida.");
+                    }
+                }
+            }
+            else
+            {
+                // El usuario no dispone de contraseña local, por lo que debe quitar todos los errores de validación generados por un
+                // campo OldPassword
+                ModelState state = ModelState["OldPassword"];
+                if (state != null)
+                {
+                    state.Errors.Clear();
+                }
+
+                /*
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        WebSecurity.CreateAccount(User.Identity.Name, model.NewPassword);
+                        return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
+                    }
+                    catch (Exception)
+                    {
+                        ModelState.AddModelError("", String.Format("No se puede crear una cuenta local. Es posible que ya exista una cuenta con el nombre \"{0}\".", User.Identity.Name));
+                    }
+                }*/
+            }
+
+            // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+            return View(model);
+        }
+
+
         public ActionResult Edit(int id = 0)
         {
             ApplicationUser user = UserManager.FindById(User.Identity.GetUserId());
            
-            //  var xd=   HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().;
+          // var xd=   HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().;
             return View(user);
         }
 
@@ -424,17 +527,46 @@ namespace University_Manager.Controllers
         [ValidateAntiForgeryToken]        
         public ActionResult Edit(ApplicationUser pUser)
         {
-            ApplicationUser user = UserManager.FindById(pUser.Id);
-            user.UserName = pUser.UserName;
-            user.Email = pUser.Email;
-            user.Email = pUser.Email;
-            user.PhoneNumber = user.PhoneNumber;
+            UserManager.SetEmail(pUser.Id,pUser.Email);
+            UserManager.SetPhoneNumber(pUser.Id, pUser.PhoneNumber);
 
 
-            UserManager.Update(user);
-            //  var xd=   HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>().;
-            return View(user);
+            return View();
         }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult ListUsers(int id = 0)
+        {
+            var users = UserManager.Users;
+            var model = new Collection<UserRoleViewModel>();
+
+          
+            foreach (var user in users)
+            {
+                List<IdentityRole> listRoles =new List<IdentityRole>();
+               
+
+                foreach (var role in user.Roles.ToList())
+                {
+                    listRoles.Add(context.Roles.Where(x => x.Id == role.RoleId).FirstOrDefault());
+   
+                }
+
+                model.Add(new UserRoleViewModel { User = user, Roles = listRoles });
+            }
+
+            return View( model);
+        }
+
+ 
+
+
 
         protected override void Dispose(bool disposing)
         {
@@ -482,7 +614,7 @@ namespace University_Manager.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Users");
+            return RedirectToAction("Index", "Home");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

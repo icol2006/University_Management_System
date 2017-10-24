@@ -10,6 +10,7 @@ using University_Manager.Models;
 
 namespace University_Manager.Controllers
 {
+    [Authorize]
     public class TeacherController : Controller
     {
         private UniversityDbContex db = new UniversityDbContex();

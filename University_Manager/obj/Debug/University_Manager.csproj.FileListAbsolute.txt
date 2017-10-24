@@ -73,4 +73,3 @@ C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Ant
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\bin\Newtonsoft.Json.xml
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\obj\Debug\University_Manager.dll
 C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\obj\Debug\University_Manager.pdb
-C:\Users\Maykol\Documents\.Net MVC\University_Manager\University_Manager\obj\Debug\University_Manager.csprojResolveAssemblyReference.cache

@@ -22,7 +22,10 @@
     <link href="~/Assets/morrisjs/morris.css" rel="stylesheet" />
     <!-- Custom Fonts -->
     <link href="~/Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-
+    <link href="~/Css/jquery.dataTables.min.css" rel="stylesheet" />
+  
+     <script type="text/javascript"
+            src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
     <link href="~/Css/styee.css" rel="stylesheet" /
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,21 +64,29 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li>                            
+                            @using (Html.BeginForm("Edit", "Account", FormMethod.Get, new { id = "editUser" }))
+                            {
+                                @Html.AntiForgeryToken()
+                            }
+
+                            <a href="javascript:document.getElementById('editUser').submit()">User Profile</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
+                            @using (Html.BeginForm("Manage", "Account", FormMethod.Get, new { id = "changePassword" }))
+                            {
+                                @Html.AntiForgeryToken()
+                            }
+
+                            <a href="javascript:document.getElementById('changePassword').submit()">Change Password</a>                        </li>
                         <li class="divider"></li>
                         <li>
                             @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
                             {
                                 @Html.AntiForgeryToken()
-
                             }
                             
-                       <a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
+                           <a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a>
 
                       </li>
                     </ul>
@@ -267,6 +278,9 @@
     <!-- /#wrapper -->
     <!-- jQuery -->
     <script src="~/Assets/jquery/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
     <!-- Metis Menu Plugin JavaScript -->
@@ -278,6 +292,21 @@
     <!-- Custom Theme JavaScript -->
     <script src="~/Js/sb-admin-2.js"></script>
 
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        var table = $('#myTable').DataTable();
+
+        $('#myTable tbody')
+            .on('mouseenter', 'td', function () {
+                var colIdx = table.cell(this).index().column;
+
+                $(table.cells().nodes()).removeClass('highlight');
+                $(table.column(colIdx).nodes()).addClass('highlight');
+            });
+    });
+    </script>
 
 </body>
 </html>

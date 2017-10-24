@@ -2,39 +2,47 @@
 
 @{
     ViewBag.Title = "Index";
+    WebGrid grid = new WebGrid(Model);
 }
 
 <h2>All Departments</h2>
 
-
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Code)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Code)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DepartmentId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DepartmentId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DepartmentId })
-        </td>*@
-    </tr>
-}
+<div class="panel panel-primary">
+    <div class="panel-heading">Items</div>
+    <div class="container-outer" style="padding:10px">
+        <table id="myTable" class="display" width="100%" >
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Code)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.DepartmentId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.DepartmentId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.DepartmentId })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
 
-</table>
