@@ -2,24 +2,26 @@
 @{
     ViewBag.Title = "Result";
 }
-<h2>Student Result</h2>
-
-<div class="container-outer">
-    <table id="myTable" class="display" width="100%">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayName("Registration Id")
-                </th>
-                <th>
-                    @Html.DisplayName("Course Code")
-                </th>
-                <th>
-                    @Html.DisplayName("Grade")
-                </th>
-                <th></th>
-            </tr>
-        </thead>
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <span class="glyphicon glyphicon-th"></span><h4 class="title">STUDENT RESULT</h4>
+    </div>
+    <div class="container-outer" style="padding:10px">
+        <table id="myTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Registration Id")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Course Code")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Grade")
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
             @foreach (var item in Model)
             {
                 <tr>
@@ -34,10 +36,11 @@
                     </td>
                     <td>
                         @*@Html.ActionLink("Edit", "Edit", new { id=item.ResultEntryId }) |
-                        @Html.ActionLink("Details", "Details", new { id=item.ResultEntryId }) |*@
+                            @Html.ActionLink("Details", "Details", new { id=item.ResultEntryId }) |*@
                         @Html.ActionLink("Delete", "Delete", new { id = item.ResultEntryId })
                     </td>
                 </tr>
             }
-</table>
-</div>
+        </table>
+    </div>
+    </div>

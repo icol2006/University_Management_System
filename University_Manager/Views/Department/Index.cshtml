@@ -5,16 +5,15 @@
     WebGrid grid = new WebGrid(Model);
 }
 
-<h2>All Departments</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 
 <div class="panel panel-primary">
-    <div class="panel-heading">Items</div>
+    <div class="panel-heading clearfix">
+     <span class="glyphicon glyphicon-th"></span><h4 class="title">DEPARMENTS</h4>
+     <input type="button"  class="btn btn-default pull-right btp" value="Create new" onclick="location.href='@Url.Action("Create", "Department")'" />      
+    </div>
     <div class="container-outer" style="padding:10px">
-        <table id="myTable" class="display" width="100%" >
+        <table id="myTable" class="table table-bordered table-striped" >
             <thead>
                 <tr>
                     <th>
@@ -36,13 +35,17 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.DepartmentId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.DepartmentId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.DepartmentId })
+                        <a href="@Url.Action("Edit", "Department", new { id = item.DepartmentId })" class="btn btn-primary">
+                            Edit
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                        </a>
+                        <a href="@Url.Action("Delete", "Department", new { id = item.DepartmentId })" class="btn btn-danger">
+                            Remove
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </a>
                     </td>
                 </tr>
             }
         </table>
     </div>
 </div>
-

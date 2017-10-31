@@ -1,57 +1,58 @@
 ﻿@using System.Activities.Expressions
 @model IEnumerable<University_Manager.Models.Course>
-
 @if (Model != null)
 {
-    <table class="table table-striped">
-        <tr>
-            <th>
-                Course Code
-            </th>
-            <th>
-                Course Name
-            </th>
-            <th>
-                Semester
-            </th>
-            <th>
-                Assigned To
-            </th>
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <span class="glyphicon glyphicon-th"></span><h4 class="title">ASSIGN COURSE</h4>
+        </div>
+        <div class="container-outer" style="padding:10px">
+            <table id="myTable" class="table table-bordered table-striped">
+                <tr>
+                    <th>
+                        Course Code
+                    </th>
+                    <th>
+                        Course Name
+                    </th>
+                    <th>
+                        Semester
+                    </th>
+                    <th>
+                        Assigned To
+                    </th>
+                </tr>
+                @foreach (var item in Model)
+                {
 
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            
-            <tr>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Code)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.CourseSemister.Semistername)
-                </td>
-                <td>
-                    @if (item.AssignTo != null) 
-                    { 
-                        @Html.DisplayFor(modelItem => item.AssignTo)
-                    }
-                    @if (item.AssignTo == null)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CourseSemister.Semistername)
+                        </td>
+                        <td>
+                            @if (item.AssignTo != null)
+                            {
+                                @Html.DisplayFor(modelItem => item.AssignTo)
+                            }
+                            @if (item.AssignTo == null)
                     {
                         item.AssignTo = "Not Assigned";
-                        @Html.DisplayFor(modelItem => item.AssignTo) 
-                    }
-                </td>
+                                @Html.DisplayFor(modelItem => item.AssignTo)
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+            </div>
+        </div>
+            }
 
-            </tr>
-        }
-    </table>
-}
 
 
-
-<div style="color: darkgoldenrod"><h3>@ViewBag.NotAssigned</h3></div>
+            <div style="color: darkgoldenrod"><h3>@ViewBag.NotAssigned</h3></div>

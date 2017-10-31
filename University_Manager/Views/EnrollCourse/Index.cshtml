@@ -2,27 +2,27 @@
 @{
     ViewBag.Title = "Enroll Course";
 }
-<h2>Enrolled Course Status </h2>
-<p>
-    @Html.ActionLink("Enroll Course", "Create")
-</p>
-<p><br /></p>
-<div class="container-outer">
-    <table id="myTable" class="display" width="100%">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayName("Student Registration Id")
-                </th>
-                <th>
-                    @Html.DisplayName("Course Code")
-                </th>
-                <th>
-                    @Html.DisplayName("Enroll Date")
-                </th>
-                <th></th>
-            </tr>
-        </thead>
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <span class="glyphicon glyphicon-th"></span><h4 class="title">Enrolled Course Status</h4>
+        <input type="button" class="btn btn-default pull-right btp" value="Enroll Course" onclick="location.href='@Url.Action("Create", "EnrollCourse")'" />
+    </div>
+    <div class="container-outer" style="padding:10px">
+        <table id="myTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Student Registration Id")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Course Code")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Enroll Date")
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
             @foreach (var item in Model)
             {
                 <tr>
@@ -40,5 +40,6 @@
                     </td>
                 </tr>
             }
-</table>
-</div>
+        </table>
+    </div>
+    </div>

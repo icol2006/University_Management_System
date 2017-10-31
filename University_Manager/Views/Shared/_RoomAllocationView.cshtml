@@ -7,37 +7,41 @@
 
 <link href="~/Css/jquery.dataTables.min.css" rel="stylesheet" />
 <script type="text/javascript"
-        src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>pt>
+        src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 
 
-<div class="container-outer">
-            <table id="myTable" class="display" width="100%">
-                <thead>
-                    <tr>
-                        <th>
-                            Course Code
-                        </th>
-                        <th>
-                            Name/Title
-                        </th>
-                        <th>
-                            Schedule Info
-                        </th>
-                    </tr>
-                </thead>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Code)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @foreach (var anAllocatedRoom in item.RoomAllocationList)
+<div class="panel panel-primary">
+    <div class="panel-heading clearfix">
+        <span class="glyphicon glyphicon-th"></span><h4 class="title">View Room Allocation</h4>
+    </div>
+    <div class="container-outer" style="padding:10px">
+        <table id="myTable" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Course Code
+                    </th>
+                    <th>
+                        Name/Title
+                    </th>
+                    <th>
+                        Schedule Info
+                    </th>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Code)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @foreach (var anAllocatedRoom in item.RoomAllocationList)
                         {
-                                    <b>Room:</b>
+                            <b>Room:</b>
                                     @Html.DisplayFor(modelItem => anAllocatedRoom.Room.Name)
                                     <i>,</i>
                                     @Html.DisplayFor(modelItem => anAllocatedRoom.Day.Name)
@@ -46,20 +50,21 @@
                                     <i>-</i>
                                     @Html.DisplayFor(modelItem => anAllocatedRoom.EndTime)
                                     <b><i>;</i></b>
-                                }
-                                @if (item.RoomAllocationList.Count == 0)
+                        }
+                        @if (item.RoomAllocationList.Count == 0)
                         {
-                                    <i>Unscheduled</i>
-                                }
-                            </td>
-                        </tr>
-                    }
+                            <i>Unscheduled</i>
+                        }
+                    </td>
+                </tr>
+            }
         </table>
-    <div style="color: darkgoldenrod"><h3>@ViewBag.NoCourse</h3></div>
-</div>
+        <div style="color: darkgoldenrod"><h3>@ViewBag.NoCourse</h3></div>
+    </div>
+    </div>
 
     <!-- jQuery -->
- <script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
 
 
 

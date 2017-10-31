@@ -11,8 +11,12 @@
 
 @if (Model != null)
 {
-    <div class="container-outer">
-            <table class="table table-striped">
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <span class="glyphicon glyphicon-th"></span><h4 class="title">DEPARMENTS</h4>
+        </div>
+        <div class="container-outer" style="padding:10px">
+            <table id="myTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
                         <th>
@@ -50,20 +54,21 @@
                         </tr>
                     }
             </table>
-    </div>
-}
+        </div>
+        </div>
+        }
 
         <div style="color: darkgoldenrod"><h3>@ViewBag.NotEnrolled</h3></div>
 
-    <!-- jQuery -->
-<script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- jQuery -->
+        <script src="~/Assets/bootstrap/js/bootstrap.min.js"></script>
 
 
 
-<script type="text/javascript">
+        <script type="text/javascript">
 
-        $(document).ready(function () {
-            var table = $('#myTable').DataTable();
+            $(document).ready(function () {
+                var table = $('#myTable').DataTable();
 
-        });
-</script>
+            });
+        </script>

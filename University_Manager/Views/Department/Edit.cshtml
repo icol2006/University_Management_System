@@ -8,33 +8,36 @@
 {
     @Html.AntiForgeryToken()
 
-    <div class="panel panel-primary">
-        <div class="panel-heading"><h4>Edit Deparment</h4></div>
-
-        <div class="panel-body">
-            <fieldset>
-                @Html.ValidationSummary(true)
-                @Html.HiddenFor(model => model.DepartmentId)
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
-                    @Html.TextBoxFor(model => model.Code, null, new { @class = "form-control col-md-2" })
-                    @Html.ValidationMessageFor(model => model.Code)
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
-                    @Html.TextBoxFor(model => model.Name, null, new { @class = "form-control col-md-2" })
-                    @Html.ValidationMessageFor(model => model.Code)
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-0 col-md-10">
-                        <input type="submit" style="margin-top:20px" value="Create" class="btn btn-primary" />
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading"><span class="glyphicon glyphicon-th"></span><h4 class="title">Edit Deparment</h4></div>
+            <div class="panel-body">
+                <fieldset>
+                    <div class="col-md-6">
+                        @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => model.DepartmentId)
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Code, htmlAttributes: new { @class = "control-label" })
+                            @Html.TextBoxFor(model => model.Code, null, new { @class = "form-control col-md-2" })
+                            @Html.ValidationMessageFor(model => model.Code)
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label" })
+                            @Html.TextBoxFor(model => model.Name, null, new { @class = "form-control col-md-2" })
+                            @Html.ValidationMessageFor(model => model.Code)
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-0 col-md-10">
+                                <input type="submit" style="margin-top:20px" value="Create" class="btn btn-primary" />
+                            </div>
+                        </div>
                     </div>
-                </div>
-
-            </fieldset>
-        </div>
-        <div style="margin-left:20px;margin-bottom:20px">
-           @Html.ActionLink("Back to List", "Index")
+                </fieldset>
+            </div>
+            <div style="margin-left:20px;margin-bottom:20px">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
         </div>
     </div>
 }
+       
