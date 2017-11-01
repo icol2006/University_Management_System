@@ -13,17 +13,19 @@
 
 @using (Html.BeginForm())
 {
-    <div>
+    <div class="col-md-4">
         <b>Select Student  </b>
-        @Html.DropDownList("StudentId", "Select Student")
+        @Html.DropDownList("StudentId", null, htmlAttributes: new { @class = "form-control col-md-1" })
     </div>
+  <br />
 }
 
-<div id="studentInfo">
+
+<div id="studentInfo" class="col-md-12">
     @Html.Partial("~/Views/shared/_studentInformation.cshtml")
 </div>
 <p><br /></p>
-<div id="result_Data">
+<div id="result_Data" class="col-md-12">
     @Html.Partial("~/Views/Shared/_ResultInformation.cshtml")
 </div>
 
